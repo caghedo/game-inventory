@@ -5,6 +5,7 @@ from application.forms import PlayerCreateForm,PlayerUpdateForm,GameCreateForm,G
 
 
 @app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -31,7 +32,7 @@ def playercreate():
             full_name = fullname,
             steam_id = steamname)
 
-            db.session.add(user1)
+            db.session.add(player1)
             db.session.commit()
     return render_template('playercreate.html',form=form,message=message)
 
@@ -46,7 +47,7 @@ def playerupdate():
     return render_template('playerupdate.html',form=form)
 
 @app.route('/playerdelete/<int:id>')
-def playerelete(id):
+def playerdelete(id):
     player=Player.query.get(id)
     db.session.delete(player)
     db.session.commit()
