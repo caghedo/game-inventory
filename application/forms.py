@@ -11,7 +11,7 @@ class PlayerCreateForm(FlaskForm):
 
 class PlayerUpdateForm(FlaskForm):
     id= IntegerField('Type ID here')
-    steam_id=StringField('Type new Steam ID here')
+    steam_id= StringField('Type new Steam ID here')
     submit = SubmitField('Change Entry')
 
 class GameCreateForm(FlaskForm):
@@ -22,7 +22,7 @@ class GameCreateForm(FlaskForm):
 class GameUpdateForm(FlaskForm):
     id=IntegerField("Type ID here")
     size= IntegerField("Type new size in MB here")
-    sumbit=SubmitField("Change Entry")
+    submit= SubmitField("Change Entry")
 
 class Player_GameCreateForm(FlaskForm):
     player_id=IntegerField("Type Player ID here")

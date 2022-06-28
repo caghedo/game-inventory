@@ -57,3 +57,94 @@ def playerdelete(id):
 
 
 
+
+@app.route('/gameview')
+def gameview():
+    game=Game.query.all()
+    return render_template('gameview.html',game=game)
+
+@app.route('/gamecreate', methods=['GET','POST'])
+def gamecreate():
+    message=""
+    form=GameCreateForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            name=form.name.data
+            size=form.size.data
+    
+            if len(name)== 0:
+                message = "Please supply the game's name"
+            
+            game1=Game(  
+            name = name,
+            size_mb = size)
+
+            db.session.add(game1)
+            db.session.commit()
+    return render_template('gamecreate.html',form=form,message=message)
+
+@app.route('/gameupdate', methods=['GET','POST'])
+def gameupdate():
+    form=GameUpdateForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            game=Game.query.get(form.id.data)
+            game.size_mb=form.size.data
+            db.session.commit()
+    return render_template('gameupdate.html',form=form)
+
+@app.route('/gamedelete/<int:id>')
+def gamedelete(id):
+    game=Game.query.get(id)
+    db.session.delete(game)
+    db.session.commit()
+    return redirect(url_for('gameview'))
+
+
+
+
+
+@app.route('/player_gameview')
+def player_gameview():
+    player_game=Player_Game.query.all()
+    return render_template('player_gameview.html',player_game=player_game)
+
+@app.route('/player_gamecreate', methods=['GET','POST'])
+def player_gamecreate():
+    message=""
+    form=Player_GameCreateForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            playerid=form.player_id.data
+            gameid=form.game_id.data
+            installed=form.installed.data
+    
+           
+            
+            player_game1=Player_Game(  
+            player_id=playerid,
+            game_id=gameid, installed=installed)
+
+            db.session.add(player_game1)
+            db.session.commit()
+    return render_template('player_gamecreate.html',form=form,message=message)
+
+@app.route('/player_gameupdate', methods=['GET','POST'])
+def player_gameupdate():
+    form=Player_GameUpdateForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            player_game=Player_Game.query.get(form.id.data)
+            player_game.installed=form.installed.data
+            db.session.commit()
+    return render_template('player_gameupdate.html',form=form)
+
+@app.route('/player_gamedelete/<int:id>')
+def player_gamedelete(id):
+    player_game=Player_Game.query.get(id)
+    db.session.delete(player_game)
+    db.session.commit()
+    return redirect(url_for('player_gameview'))
+
+
+

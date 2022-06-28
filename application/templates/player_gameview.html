@@ -1,0 +1,17 @@
+{% extends "player_game_layout.html" %}
+{% block body %}
+<p>These are all the players and they games they own recorded so far</p>
+{% for x in player_game %}
+<p>Player ID:{{x.player_id}}<br>
+Game ID :{{x.game_id}}<br>
+Installed:{{x.installed}}</p>
+<form action="{{ url_for('player_gamedelete',id=x.id) }}">
+<button type="Submit">Delete Entry</button>    
+</form>
+{% endfor %}
+
+
+
+
+
+{% endblock body %}
