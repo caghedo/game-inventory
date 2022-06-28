@@ -1,0 +1,13 @@
+{% extends "player_layout.html" %}
+{% block body %}
+
+<p>These are all the players recorded so far</p>
+{% for p in player %}
+<p>Player name:{{p.full_name}}<br>
+Steam name:{{p.steam_id}}</p>
+<form action="{{ url_for('playerdelete',id=p.id) }}">
+<button type="Submit">Delete Player</button>    
+</form>
+{% endfor %}
+
+{% endblock body %}

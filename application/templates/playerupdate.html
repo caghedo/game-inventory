@@ -1,0 +1,16 @@
+{% extends "player_layout.html" %}
+{% block body %}
+<div class='form'>
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        {{ form.id.label }} {{ form.id }}
+        <br>
+        {{ form.steam_id.label }} {{ form.steam_id }}
+        <br>
+        {{ form.submit }}
+        <br>
+    </form>
+</div>
+
+
+{% endblock body %}
