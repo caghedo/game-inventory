@@ -10,15 +10,15 @@ class Player(db.Model):
 class Game(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(50), nullable=False)
-    size_mb=db.Column(db.Integer, nullable=False)
+    size=db.Column(db.Integer, nullable=False)
     Player_game = db.relationship('Player_Game', backref='gamebr')
 
     
 
 class Player_Game(db.Model):
     id=db.Column(db.Integer, primary_key=True)
-    player_id=db.Column(db.Integer, db.ForeignKey("player.id"), nullable=False)
-    game_id=db.Column(db.Integer, db.ForeignKey("game.id"), nullable=False) 
+    player_id=db.Column(db.Integer, db.ForeignKey("player.id"))
+    game_id=db.Column(db.Integer, db.ForeignKey("game.id")) 
     installed=db.Column(db.Boolean, nullable=False)
 
 

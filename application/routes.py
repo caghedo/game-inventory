@@ -23,10 +23,10 @@ def playercreate():
             fullname=form.full_name.data
             steamname=form.steam_id.data
     
-            if len(fullname) == 0 or len(steamname) == 0:
+            '''if len(fullname) == 0 or len(steamname) == 0:
                 message = "Please supply both full name and steam name"
             else:
-                message = f'Thank you, {fullname}'
+                message = f'Thank you, {fullname}'''
             
             player1=Player(  
             full_name = fullname,
@@ -49,6 +49,10 @@ def playerupdate():
 @app.route('/playerdelete/<int:id>')
 def playerdelete(id):
     player=Player.query.get(id)
+    player_game=Player_Game.query.all()
+    for y in player_game:
+        if y.player_id==player.id:
+            redirect(url_for('player_gamedelete',id=y.id))
     db.session.delete(player)
     db.session.commit()
     return redirect(url_for('playerview'))
@@ -77,7 +81,7 @@ def gamecreate():
             
             game1=Game(  
             name = name,
-            size_mb = size)
+            size = size)
 
             db.session.add(game1)
             db.session.commit()
@@ -89,7 +93,7 @@ def gameupdate():
     if request.method == 'POST':
         if form.validate_on_submit():
             game=Game.query.get(form.id.data)
-            game.size_mb=form.size.data
+            game.size=form.size.data
             db.session.commit()
     return render_template('gameupdate.html',form=form)
 
@@ -97,6 +101,10 @@ def gameupdate():
 def gamedelete(id):
     game=Game.query.get(id)
     db.session.delete(game)
+    player_game=Player_Game.query.all()
+    for x in player_game:
+        if x.game_id==game.id:
+            db.session.delete(x)
     db.session.commit()
     return redirect(url_for('gameview'))
 
