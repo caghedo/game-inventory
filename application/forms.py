@@ -23,12 +23,12 @@ class GameCreateForm(FlaskForm):
 
 class GameUpdateForm(FlaskForm):
     id=IntegerField("Type ID here")
-    size= IntegerField("Type new size in MB here",validators=[DataRequired(), Length(min=1,max=10)])
+    size= IntegerField("Type new size in MB here")
     submit= SubmitField("Change Entry")
 
 class Player_GameCreateForm(FlaskForm):
-    player_id=IntegerField("Type Player ID here",validators=[DataRequired(), Length(min=1,max=5)])
-    game_id=IntegerField("Type Game ID here",validators=[DataRequired(), Length(min=1,max=5)])
+    player_id=IntegerField("Type Player ID here")
+    game_id=IntegerField("Type Game ID here")
     installed=BooleanField("Type installation status here")
     submit=SubmitField("Add Entry")
 
