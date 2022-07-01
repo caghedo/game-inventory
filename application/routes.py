@@ -51,8 +51,11 @@ def playerdelete(id):
     player=Player.query.get(id)
     player_game=Player_Game.query.all()
     for y in player_game:
-        if y.player_id==player.id:
-            redirect(url_for('player_gamedelete',id=y.id))
+        t=getattr(y, "player_id")
+        #gets the attribute "player_id" from the object "y"(which is just an entry in the Player_Game database)
+        if t==player.id:
+            db.session.delete(y)
+        #and then it checks if the "player_id" from Player_Game is the same as the "player_id" from Player, deleting them both
     db.session.delete(player)
     db.session.commit()
     return redirect(url_for('playerview'))
@@ -100,11 +103,12 @@ def gameupdate():
 @app.route('/gamedelete/<int:id>')
 def gamedelete(id):
     game=Game.query.get(id)
-    db.session.delete(game)
     player_game=Player_Game.query.all()
-    for x in player_game:
-        if x.game_id==game.id:
-            db.session.delete(x)
+    for y in player_game:
+        t=getattr(y, "game_id")
+        if t==game.id:
+            db.session.delete(y)
+    db.session.delete(game)
     db.session.commit()
     return redirect(url_for('gameview'))
 

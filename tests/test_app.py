@@ -88,10 +88,19 @@ class GameTestUpdate(TestBase):
         self.assertIn(b'6000',response.data)
 
 class Player_GameTestView(TestBase):
-    def test_player_game_create(self):
+    def test_player_game_view(self):
         response=self.client.get(url_for('player_gameview'))
-        sample2= Player_Game(player_id=1, game_id=1, installed=True)
+        sample2= Player_Game(player_id=1, game_id=2, installed=True)
         db.session.add(sample2)
         db.session.commit()
-        self.assertIn(b'True', response.data)
-        
+        self.assertEqual(response.status_code, 200)
+
+class Player_GameTestCreate(TestBase):
+    def test_player_game_create(self):
+        response=self.client.post(url_for('player_gamecreate'),data=dict(player_id=1,game_id=1,installed=False))
+        self.assertIn(b'False',response.data)
+
+class Player_GameTestUpdate(TestBase):
+    def test_player_game_update(self):
+        response=self.client.put(url_for('player_gameupdate'),data=dict(id=1, installed=False))
+        self.assertIn(b'1', response.data)
