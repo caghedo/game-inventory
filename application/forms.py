@@ -2,8 +2,9 @@ from flask_wtf import FlaskForm
 from application import app
 from wtforms import IntegerField, StringField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length
+from os import getenv
 
-app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+app.config['SECRET_KEY'] = getenv('SECRET_KEY')
 
 class PlayerCreateForm(FlaskForm):
     full_name = StringField('Full Name',validators=[DataRequired(), Length(min=2,max=30)])
