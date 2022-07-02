@@ -4,6 +4,7 @@ from wtforms import IntegerField, StringField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length
 import os
 
+
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 class PlayerCreateForm(FlaskForm):

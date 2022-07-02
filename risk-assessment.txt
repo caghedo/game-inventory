@@ -1,0 +1,42 @@
+Risk 1:
+Overcomplication/Overambitiousness
+Probability:Likely
+Severity:Moderate
+Knowing me, when it comes to projects, I can let my mind roam free a bit too much and start getting ideas about concepts that are way too time-consuming to employ, and this can result in me biting off more than I can chew.
+As a remedy for this, I have decided to restrain myself and keep things simple, especially on such time constraints that I'm on now. I would like to make things a bit deeper, but right now that is not a luxury that I can afford.
+Simple is good. Simple works. Simple gets results.
+
+Risk 2:
+Apprehensiveness towards Testing
+Probability: High
+Severity: Medium
+Due to my past experiences with testing in Java, especially with Mockito, it left a really bad taste in my mouth. I personally saw it as pointless, seeing as I can just as readily demonstrate the effectiveness of the application by using the thing in practise.
+However I have released that standardisation helps with stuff like this, and helps with rooting out any hidden/sneaky oversights that you might not have found otherwise through usage of the app.
+As a remedy for this, I have decided to get the tests over and done with as soon as I deem the coding of the CRUD application completion. That way, there will be no procastination, and I can knock one item off my list.
+
+Risk 3:
+Unsureness of Certain Techs
+Probabilty:Medium
+Severity: Medium
+Python fundamentally I understand, but some of this stuff with Flask, sql_alchemy and Jenkins is something I'm still trying to wrap head around. I don't want to get overwhelmed by all this tech and then feel stuck on where to go with the project
+As a remedy for this, I've realised that I have a problem with something or am unsure of how it works and want to gain a deeper understanding of it, I will look back on older recordings Ryan did on these different techs and hope
+that I can use this knowledge to overcome whatever problem I'm having. If that doesn't work, I'll consult internet documentation, and if that don't work, then I'll reluctantly ask others.
+
+Risk 4:
+Burnout
+Probability: High
+Severity:Medium
+Since we've been going at this for a good few weeks non-stop, and with the way the learning environment is set up, it's very easy to get burnout, especially if you're staring and hunching over at your PC for nearly half
+the day.
+As a remedy for this, I've decided to take breaks when I feel things are getting too repetitive or irritating. I stil want to complete the project, but when I feel like I'm repeatedly running into a wall with whatever problem I might be facing, it's best to cool off
+and take your time to avoid too much stress.
+
+Risk 5:
+Documentation procastination
+Probability: High
+Severity: Low
+I like to program, I do not like to write paperwork about stuff that should seem pretty self-explanatory or self-evident. I don't mean leaving comments in code for others, but all this stuff with Risk Assessments, Jira, etc... It's so mundane and it's a slog
+to go through
+As a remedy for this, I have forced myself to do all the paperwork in a short period of time so I can get it off my chest and just focus on any code I might need to refactor as a part of the final adjustments before presentation day.
+
+
