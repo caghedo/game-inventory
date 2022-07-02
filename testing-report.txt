@@ -1,0 +1,15 @@
+Based on my testing of CRUD in all 3 tables of my game-inventory database, I can safely say that everything is working the way it's meant to be working
+Originally I was very unsure about what would be the "right" way to structure the testing of my app, but eventually I figured out a good templaye for doing so
+
+Player-View: working as intended
+Player-Create: First I did a pretty long-winded way of setting this up, but then I found that inserting the data into response was much more efficient. Works fine
+Player-Delete: Same thing as before, it works
+Player-Update: Same thing as before, it works
+
+Game-View
+Game-Create
+Game-Delete
+Game-Update
+
+All of these work, and my way of testing them varied. Some I assertEqualed, others I used assertIn, checking if these bytes were present in the code.
+Checking the status code was also a sure fire way of checking if the site link was working. If it was anything other than 200, then I knew something was wrong.
