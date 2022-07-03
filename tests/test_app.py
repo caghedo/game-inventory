@@ -55,8 +55,7 @@ class PlayerTestDelete(TestBase):
             #data= dict(full_name="Chris Aghedo",steam_id="Ayy")
         )
         self.assertEqual(response.status_code, 200)
-        
-        
+#start    
 
 class PlayerTestUpdate(TestBase):
     def test_update(self):
