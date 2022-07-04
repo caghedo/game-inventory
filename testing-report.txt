@@ -11,5 +11,11 @@ Game-Create: Works
 Game-Delete: Works
 Game-Update: Works
 
+
+Player-View: working as intended
+Player-Create: Pretty much works
+Player-Delete: Also works
+Player-Update: Works
+
 All of these work, and my way of testing them varied. Some I assertEqualed, others I used assertIn, checking if these bytes were present in the code.
 Checking the status code was also a sure fire way of checking if the site link was working. If it was anything other than 200, then I knew something was wrong.
